@@ -27,9 +27,9 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 text-white font-bold font-display text-lg mb-4">
 
-              {/* Real Foundation Logo */}
+              {/* Footer Logo */}
               <Image
-                src="/images/logo/ssf-logo.png"
+                src="/images/logo/ssf-footer-logo.png"
                 alt="Sakthi Sudar Foundation logo"
                 width={40}
                 height={40}
