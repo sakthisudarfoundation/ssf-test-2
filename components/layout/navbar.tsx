@@ -54,7 +54,13 @@ export function Navbar() {
             transparent ? "text-white" : "text-[#111827]"
           )}
         >
-          <span className="w-9 h-9 rounded-full bg-[conic-gradient(from_0deg,#C9962C,#1B6B4A,#12315C,#C9962C)] shrink-0" />
+          <Image
+  src="/images/logo/ssf-logo.png"
+  alt="Sakthi Sudar Foundation logo"
+  width={40}
+  height={40}
+  className="w-10 h-10 object-contain shrink-0"
+/>
           Sakthi Sudar Foundation
         </Link>
 
