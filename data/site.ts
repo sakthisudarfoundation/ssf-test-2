@@ -13,8 +13,6 @@ export const site = {
 
   registrationNumber: "36/2026",
 
-  twelveA: "[12A REGISTRATION NUMBER]",
-
   domain: "https://sakthisudarfoundation.org",
 
   social: {
