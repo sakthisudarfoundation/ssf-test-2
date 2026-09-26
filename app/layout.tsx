@@ -1,27 +1,15 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Noto_Sans_Tamil } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { BackToTop } from "@/components/shared/back-to-top";
 import { LoadingScreen } from "@/components/shared/loading-screen";
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["300", "500", "600", "700"],
-});
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   weight: ["400", "500", "600", "700"],
-});
-
-const notoTamil = Noto_Sans_Tamil({
-  subsets: ["tamil"],
-  variable: "--font-tamil",
-  weight: ["500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -63,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${notoTamil.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body className="font-body antialiased">
         <LoadingScreen />
         <Navbar />
