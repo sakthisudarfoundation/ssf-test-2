@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -19,9 +20,7 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
-// Routes whose hero section sits on a dark background. Every other route
-// is light from the very top, so its navbar must never use the transparent
-// white-text style -- that mismatch was the source of the invisible-text bug.
+// Routes whose hero section sits on a dark background.
 const DARK_HERO_ROUTES = ["/", "/about"];
 
 export function Navbar() {
@@ -30,9 +29,8 @@ export function Navbar() {
   const pathname = usePathname();
 
   const hasDarkHero = DARK_HERO_ROUTES.includes(pathname);
-  // "Transparent mode" (white text, see-through background) is only valid
-  // while we're both (a) on a route that actually has a dark hero and
-  // (b) still within that hero, i.e. not yet scrolled past it.
+
+  // Transparent navbar only while we're at the top of a dark hero.
   const transparent = hasDarkHero && !scrolled;
 
   return (
@@ -47,6 +45,8 @@ export function Navbar() {
       )}
     >
       <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
+
+        {/* Logo + Foundation Name */}
         <Link
           href="/"
           className={cn(
@@ -55,15 +55,17 @@ export function Navbar() {
           )}
         >
           <Image
-  src="/images/logo/ssf-logo.png"
-  alt="Sakthi Sudar Foundation logo"
-  width={40}
-  height={40}
-  className="w-10 h-10 object-contain shrink-0"
-/>
+            src="/images/logo/ssf-logo.png"
+            alt="Sakthi Sudar Foundation logo"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain shrink-0"
+          />
+
           Sakthi Sudar Foundation
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex gap-8 text-sm font-medium">
           {links.map((l) => (
             <Link
@@ -79,16 +81,17 @@ export function Navbar() {
           ))}
         </nav>
 
+        {/* Desktop Donate Button */}
         <div className="hidden lg:block">
           <Link href="/donate">
-            {/* Donate button carries its own gold background + dark text
-                at all times, so contrast never depends on navbar state. */}
             <Button variant="gold" size="sm">
-              <HeartHandshake size={16} /> Donate
+              <HeartHandshake size={16} />
+              Donate
             </Button>
           </Link>
         </div>
 
+        {/* Mobile Menu Button */}
         <button
           className={cn(
             "lg:hidden transition-colors duration-500",
@@ -101,6 +104,7 @@ export function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Dropdown */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -108,12 +112,10 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            // The mobile dropdown always renders on its own solid surface,
-            // regardless of navbar transparency above -- it's never see-through,
-            // so its text color is fixed and always readable.
             className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-line overflow-hidden"
           >
             <div className="flex flex-col px-6 py-4 gap-4">
+
               {links.map((l) => (
                 <Link
                   key={l.href}
@@ -124,11 +126,19 @@ export function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              <Link href="/donate" onClick={() => setOpen(false)}>
-                <Button variant="gold" className="w-full justify-center">
+
+              <Link
+                href="/donate"
+                onClick={() => setOpen(false)}
+              >
+                <Button
+                  variant="gold"
+                  className="w-full justify-center"
+                >
                   Donate
                 </Button>
               </Link>
+
             </div>
           </motion.div>
         )}
