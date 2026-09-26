@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CopyButton } from "@/components/shared/copy-button";
 import { ImageWithFallback } from "@/components/shared/image-with-fallback";
 import { donation } from "@/data/donation";
-import { site, isPlaceholder } from "@/data/site";
+import { isPlaceholder } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const tabs = ["UPI", "Bank Transfer", "QR Code"] as const;
@@ -89,12 +89,6 @@ export function DonatePanel() {
           )}
         </motion.div>
       </AnimatePresence>
-
-      <p className="text-xs text-white/50 mb-4">
-        {donation.taxDeduction.section80GConfirmed
-          ? "Donations qualify for tax deduction under Section 80G."
-          : `80G tax-deduction status: ${site.eightyG}`}
-      </p>
 
       <Button variant="gold" className="w-full justify-center">
         Proceed to Donate
