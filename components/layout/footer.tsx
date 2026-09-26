@@ -75,7 +75,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between gap-3 text-xs">
           <span>&copy; {new Date().getFullYear()} {site.name}. {site.legalNote}</span>
-          <span>Reg. No. {site.registrationNumber} &middot; 80G: {site.eightyG} &middot; 12A: {site.twelveA}</span>
+          <span>Reg. No. {site.registrationNumber}</span>
         </div>
       </div>
     </footer>
