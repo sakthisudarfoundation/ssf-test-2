@@ -11,7 +11,7 @@ export const donation = {
     bankName: "Indian Overseas Bank",
     branch: "Sevilimedu branch",
     accountNumber: "000000000000984",
-    ifsc: "[IFSC CODE]",
+    ifsc: "IOBS0000949",
   },
 
   upi: {
