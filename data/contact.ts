@@ -1,14 +1,12 @@
 /**
  * Contact details shown on the Contact page and in the footer.
- *
- * Replace every bracketed placeholder with the real, official value.
  */
 
 export const contact = {
-  address: "[TRUST REGISTERED ADDRESS]",
-  phone: "[PHONE NUMBER]",
-  email: "[OFFICIAL EMAIL]",
-  officeHours: "[OFFICE HOURS]",
+  address: "1st Street, Ellappan Nagar, Kanchipuram.",
+  phone: "9344943123",
+  email: "sakthisudarfoundation@gmail.com",
+  officeHours: "6:00 AM - 6:30 PM",
 
   mapLocation: {
     lat: process.env.NEXT_PUBLIC_MAP_LATITUDE
